@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assingment 3 - Psychic Game</title>
+</head>
+
+<body>
+<div>
+    <h1>THE PSYCHIC GAME</h1>
+    <h2>Guess what letter I am thinking of?</h2>
+    <p id="wins-text"></p>
+    <p id="losses-text"></p>
+    <p id="guessLeft-text"></p>
+</div>
+
+
+<script type="text/javascript">
+
+    var computerChoices = ["a", "b", "c" ,"d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var wins = 0;
+    var losses = 0;
+    var guessLeft = 9;
+    var guessSoFar = 0;
+
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var guessLeftText = document.getElementById("guessLeft-text");
+    var guessSoFarText = document.getElementById("guessSoFar-text");
+
+    
+    document.onkeyup = function(event) {
+
+    var userGuess = event.key;
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+    if (userGuess === computerGuess){
+        wins++;
+        guessLeft--;
+        guessSoFar++;
+        } else {
+        losses++;
+        guessLeft--;
+        guessSoFar++;
+        }
+
+
+
+    winsText.textContent = "wins: " + wins;
+    lossesText.textContent = "losses: " + losses;
+    guessLeftText.textContent = "guessLeft " + guessLeft;
+    guessSoFarText.textContent = "guessSoFar " + guessSoFar;
+
+    }
+
+</script>
+</body>
+</html>
+
+   
